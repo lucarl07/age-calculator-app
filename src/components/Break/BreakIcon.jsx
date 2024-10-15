@@ -5,7 +5,8 @@ const BreakIcon = ({src, alt}) => {
     <div
       className="icon"
       style={{
-        backgroundColor: "green"
+        width: "fit-content",
+        backgroundColor: "purple"
       }}>
       <img src={src} alt={alt} />
     </div>
