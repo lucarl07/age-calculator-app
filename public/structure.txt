@@ -1,6 +1,6 @@
 main (default branch)
   |── production
-  |     |── feature/app
+  |     |── feature/structure
   |     |── feature/code
   |     |── feature/styles
   |     |── feature/validations
