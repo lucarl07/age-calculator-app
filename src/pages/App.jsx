@@ -1,5 +1,6 @@
-// Dependencies:
+// Dependencies & Helpers:
 import { useState } from 'react';
+import calculateAge from '../helpers/calculateAge.js';
 
 // Stylesheet & Assets:
 import './App.css';
@@ -19,59 +20,58 @@ function App() {
   const [day, setDay] = useState('')
   const [month, setMonth] = useState('')
   const [year, setYear] = useState('')
+  const age = calculateAge(day, month, year)
 
   return (
-    <>
-      <Container>
-        <Form>
-          <Input.Root>
-            <Input.Label 
-              type="day" 
-              hasError={false} />
-            <Input.Field
-              getter={day}
-              setter={setDay}
-              placeholder='dd'
-              hasError={false} />
-            <Input.Error message={""} />
-          </Input.Root>
+    <Container>
+      <Form>
+        <Input.Root>
+          <Input.Label 
+            type="day" 
+            hasError={false} />
+          <Input.Field
+            getter={day}
+            setter={setDay}
+            placeholder='dd'
+            hasError={false} />
+          <Input.Error message={""} />
+        </Input.Root>
 
-          <Input.Root>
-            <Input.Label 
-              type="month" 
-              hasError={false} />
-            <Input.Field
-              getter={month}
-              setter={setMonth}
-              placeholder='dd'
-              hasError={false} />
-            <Input.Error message={""} />
-          </Input.Root>
+        <Input.Root>
+          <Input.Label 
+            type="month" 
+            hasError={false} />
+          <Input.Field
+            getter={month}
+            setter={setMonth}
+            placeholder='dd'
+            hasError={false} />
+          <Input.Error message={""} />
+        </Input.Root>
 
-          <Input.Root>
-            <Input.Label 
-              type="year" 
-              hasError={false} />
-            <Input.Field
-              getter={year}
-              setter={setYear}
-              placeholder='dd'
-              hasError={false} />
-            <Input.Error message={""} />
-          </Input.Root>
-        </Form>
+        <Input.Root>
+          <Input.Label 
+            type="year" 
+            hasError={false} />
+          <Input.Field
+            getter={year}
+            setter={setYear}
+            placeholder='dd'
+            hasError={false} />
+          <Input.Error message={""} />
+        </Input.Root>
+      </Form>
 
-        <Break.Root>
-          <Break.Icon src={IconArrow} alt="Arrow" />
-        </Break.Root>
+      <Break.Root>
+        <Break.Icon src={IconArrow} alt="Arrow" />
+      </Break.Root>
 
-        <Results>
-          <Output value={0} period='day' />
-          <Output value={0} period='month' />
-          <Output value={0} period='year' />
-        </Results>
-      </Container>
-    </>
+      <Results>
+        <Output value={age.years} period='year' />
+        <Output value={age.months} period='month' />
+        <Output value={age.days} period='day' />
+      </Results>
+    </Container>
   )
 }
 
