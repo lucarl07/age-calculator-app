@@ -1,27 +1,19 @@
-import { 
-  differenceInYears, 
-  differenceInMonths, 
-  differenceInDays 
-} from "date-fns";
+import { intervalToDuration } from "date-fns";
 
 const calculateAge = (day, month, year) => {
-  // Initial values:
-  const today = new Date();
-  const birthdate = new Date(year, month, day)
+  if (day == 0 || month == 0 || year == 0) {
+    return { years: 0, months: 0, days: 0 }
+  }
 
-  // Age values:
-  const ageYears = differenceInYears(birthdate, today)
-  const ageMonths = differenceInMonths(today, birthdate) % 12;
-  const ageDays = differenceInDays(
-    today,
-    new Date(today.getFullYear(), today.getMonth(), birthdate.getDate())
-  );
+  const age = intervalToDuration({
+    start: new Date(year, month-1, day),
+    end: new Date()
+  })
 
-  // Final object:
   return {
-    years: ageYears,
-    months: ageMonths,
-    days: ageDays
+    years: age.years,
+    months: age.months,
+    days: age.days
   }
 }
 
