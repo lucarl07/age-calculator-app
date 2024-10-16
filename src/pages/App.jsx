@@ -18,6 +18,11 @@ import Output from "../components/Output";
 
 function App() {
   const [day, setDay] = useState('')
+  const [dayErr, setDayErr] = useState({
+    color: "grey",
+    message: ""
+  })
+  
   const [month, setMonth] = useState('')
   const [year, setYear] = useState('')
   const age = calculateAge(day, month, year)
@@ -28,36 +33,39 @@ function App() {
         <Input.Root>
           <Input.Label 
             type="day" 
-            hasError={false} />
+            error={dayErr} />
           <Input.Field
             getter={day}
             setter={setDay}
-            placeholder='dd'
-            hasError={false} />
-          <Input.Error message={""} />
+            placeholder='DD'
+            getError={dayErr}
+            setError={setDayErr} />
+          <Input.Error message={dayErr.message} />
         </Input.Root>
 
         <Input.Root>
           <Input.Label 
             type="month" 
-            hasError={false} />
+            error={dayErr} />
           <Input.Field
             getter={month}
             setter={setMonth}
-            placeholder='dd'
-            hasError={false} />
+            placeholder='MM'
+            getError={{}}
+            setError={false} />
           <Input.Error message={""} />
         </Input.Root>
 
         <Input.Root>
           <Input.Label 
             type="year" 
-            hasError={false} />
+            error={dayErr} />
           <Input.Field
             getter={year}
             setter={setYear}
-            placeholder='dd'
-            hasError={false} />
+            placeholder='YYYY'
+            getError={{}}
+            setError={false} />
           <Input.Error message={""} />
         </Input.Root>
       </Form>

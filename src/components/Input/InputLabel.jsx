@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-const InputLabel = ({type, hasError = false}) => {
+const InputLabel = ({type, error}) => {
   return (
     <label className="label" htmlFor="input-field" style={{
-      color: hasError ? "red" : "grey"
+      color: error.color
     }}>
       {type.toUpperCase()}
     </label>
