@@ -12,7 +12,9 @@ const InputLabel = ({type, error}) => {
 
 InputLabel.propTypes = {
   type: PropTypes.string.isRequired,
-  hasError: PropTypes.bool
+  error: PropTypes.shape({
+    color: PropTypes.string.isRequired
+  })
 }
 
 export default InputLabel;

@@ -40,7 +40,7 @@ function App() {
             placeholder='DD'
             getError={dayErr}
             setError={setDayErr} />
-          <Input.Error message={dayErr.message} />
+          <Input.Error src={dayErr} />
         </Input.Root>
 
         <Input.Root>
@@ -53,7 +53,7 @@ function App() {
             placeholder='MM'
             getError={{}}
             setError={false} />
-          <Input.Error message={""} />
+          <Input.Error src={""} />
         </Input.Root>
 
         <Input.Root>
@@ -66,7 +66,7 @@ function App() {
             placeholder='YYYY'
             getError={{}}
             setError={false} />
-          <Input.Error message={""} />
+          <Input.Error src={""} />
         </Input.Root>
       </Form>
 

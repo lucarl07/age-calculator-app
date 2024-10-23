@@ -22,7 +22,13 @@ InputField.propTypes = {
   ]),
   setter: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  hasError: PropTypes.bool
+
+  /* Error related props: */
+  getError: PropTypes.exact({
+    color: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+  }),
+  setError: PropTypes.func.isRequired
 }
 
 export default InputField
