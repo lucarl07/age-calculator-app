@@ -1,6 +1,5 @@
 // Dependencies & Helpers:
 import { useReducer, useState } from 'react';
-import { getYear, getDaysInMonth } from 'date-fns';
 import calculateAge from '../helpers/calculateAge.js';
 
 // Stylesheet & Assets:
