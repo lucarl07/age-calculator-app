@@ -17,19 +17,15 @@ import Input from "../components/Input";
 import Break from "../components/Break";
 import Output from "../components/Output";
 
+const defError = {
+  color: "grey",
+  message: "" 
+}
+
 function App() {
-  const [dayErr, setDayErr] = useState({
-    color: "grey",
-    message: "" 
-  })
-  const [monthErr, setMonthErr] = useState({
-    color: "grey",
-    message: "" 
-  })
-  const [yearErr, setYearErr] = useState({
-    color: "grey",
-    message: "" 
-  })
+  const [dayErr, setDayErr] = useState(defError)
+  const [monthErr, setMonthErr] = useState(defError)
+  const [yearErr, setYearErr] = useState(defError)
 
   const [date, updateDate] = useReducer((prev, next) => {
     return { ...prev, ...next };
