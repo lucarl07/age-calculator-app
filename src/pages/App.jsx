@@ -31,46 +31,73 @@ function App() {
     const newDate = { ...prev, ...next }
     const errors = [false, false, false, false]
 
-    if (newDate.day > 31) {
-      errors[1] = true
-      setDayErr({
-        isActive: true,
-        message: 'Must be a valid day'
-      })
-    } else {
-      errors[1] = false
-      setDayErr(defError)
-    }
-
-    if (newDate.month > 12) {
-      errors[2] = true
-      setMonthErr({
-        isActive: true,
-        message: 'Must be a valid month'
-      })
-    } else {
-      errors[2] = false
-      setMonthErr(defError)
-    }
-
     // Checks if the date is in the past/present
     if (
       new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()
     ) {
-      errors[3] = true
+      errors[2] = true
       setYearErr({
         isActive: true,
         message: 'Must be in the past'
       })
     } else {
-      errors[3] = false
+      errors[2] = false
+      setYearErr(defError)
+    }
+    
+    if (newDate.day > 31 || newDate.day < 1) {
+      errors[0] = true
+      
+      if (newDate.day < 1) {
+        setDayErr({
+          isActive: true,
+          message: 'This field is required'
+        })
+      } else {
+        setDayErr({
+          isActive: true,
+          message: 'Must be a valid day'
+        })
+      }
+    } else {
+      errors[0] = false
+      setDayErr(defError)
+    }
+
+    if (newDate.month > 12 || newDate.month < 1) {
+      errors[1] = true
+      
+      if (newDate.month < 1) {
+        setMonthErr({
+          isActive: true,
+          message: 'This field is required'
+        })
+      } else {
+        setMonthErr({
+          isActive: true,
+          message: 'Must be a valid month'
+        })
+      }
+    } else {
+      errors[1] = false
+      setMonthErr(defError)
+    }
+
+    if (newDate.year < 1) {
+      errors[2] = true
+      setYearErr({
+        isActive: true,
+        message: 'This field is required'
+      })
+    } else {
+      errors[2] = false
       setYearErr(defError)
     }
 
     return { ...newDate, errors };
   }, {
     day: "", month: "", year: "", errors: [ 
-      false, false, false, false 
+      false, false, false
     ]
   })
   const age = calculateAge(date)
