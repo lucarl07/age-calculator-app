@@ -16,12 +16,8 @@ import Input from "../components/Input";
 import Break from "../components/Break";
 import Output from "../components/Output";
 
-const defError = {
-  isActive: false,
-  message: "" 
-}
-
 function App() {
+  const defError = { isActive: false, message: "" }
   const [dayErr, setDayErr] = useState(defError)
   const [monthErr, setMonthErr] = useState(defError)
   const [yearErr, setYearErr] = useState(defError)
