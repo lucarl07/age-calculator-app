@@ -37,7 +37,7 @@ function App() {
           <Input.Field
             getter={day}
             setter={setDay}
-            placeholder='DD'
+            type='day'
             getError={dayErr}
             setError={setDayErr} />
           <Input.Error src={dayErr} />
@@ -50,7 +50,7 @@ function App() {
           <Input.Field
             getter={month}
             setter={setMonth}
-            placeholder='MM'
+            type='month'
             getError={{}}
             setError={false} />
           <Input.Error src={""} />
@@ -63,7 +63,7 @@ function App() {
           <Input.Field
             getter={year}
             setter={setYear}
-            placeholder='YYYY'
+            type='year'
             getError={{}}
             setError={false} />
           <Input.Error src={""} />

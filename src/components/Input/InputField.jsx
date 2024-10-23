@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
+import setInputPlaceholder from "../../helpers/setInputPlaceholder";
 
-const InputField = ({getter, setter, placeholder, getError, setError}) => {
+const InputField = ({getter, setter, type, getError, setError}) => {
+  const placeholder = setInputPlaceholder(type);
+
   const borderColor = getError.color
 
   return (
@@ -21,7 +24,7 @@ InputField.propTypes = {
     PropTypes.string
   ]),
   setter: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
+  type: PropTypes.string,
 
   /* Error related props: */
   getError: PropTypes.exact({
