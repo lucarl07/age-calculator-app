@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
 import setInputPlaceholder from "../../helpers/setInputPlaceholder";
 
-const InputField = ({getter, setter, type, getError, setError}) => {
+const InputField = ({type, getter, setter, getError}) => {
   const placeholder = setInputPlaceholder(type);
-
   const borderColor = getError.color
-
+  
   return (
     <input 
       type="number" 
@@ -13,25 +12,21 @@ const InputField = ({getter, setter, type, getError, setError}) => {
       className="input-field"
       placeholder={placeholder}
       value={getter}
-      onChange={({target}) => setter(target.value)}
+      onChange={setter}
       style={{borderColor}} />
   );
 }
 
 InputField.propTypes = {
+  type: PropTypes.string,
   getter: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string
   ]),
   setter: PropTypes.func.isRequired,
-  type: PropTypes.string,
-
-  /* Error related props: */
-  getError: PropTypes.exact({
+  getError: PropTypes.shape({
     color: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-  }),
-  setError: PropTypes.func.isRequired
+  })
 }
 
 export default InputField

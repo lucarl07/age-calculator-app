@@ -1,5 +1,6 @@
 // Dependencies & Helpers:
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
+import { getYear } from 'date-fns';
 import calculateAge from '../helpers/calculateAge.js';
 
 // Stylesheet & Assets:
@@ -17,15 +18,25 @@ import Break from "../components/Break";
 import Output from "../components/Output";
 
 function App() {
-  const [day, setDay] = useState('')
   const [dayErr, setDayErr] = useState({
     color: "grey",
-    message: ""
+    message: "" 
   })
-  
-  const [month, setMonth] = useState('')
-  const [year, setYear] = useState('')
-  const age = calculateAge(day, month, year)
+  const [monthErr, setMonthErr] = useState({
+    color: "grey",
+    message: "" 
+  })
+  const [yearErr, setYearErr] = useState({
+    color: "grey",
+    message: "" 
+  })
+
+  const [date, updateDate] = useReducer((prev, next) => {
+    return { ...prev, ...next };
+  }, {
+    day: "", month: "", year: ""
+  })
+  const age = calculateAge(date)
 
   return (
     <Container>
@@ -35,9 +46,11 @@ function App() {
             type="day" 
             error={dayErr} />
           <Input.Field
-            getter={day}
-            setter={setDay}
             type='day'
+            getter={date.day}
+            setter={e => updateDate(
+              {...date, day: e.target.value}
+            )}
             getError={dayErr}
             setError={setDayErr} />
           <Input.Error src={dayErr} />
@@ -46,27 +59,31 @@ function App() {
         <Input.Root>
           <Input.Label 
             type="month" 
-            error={dayErr} />
+            error={monthErr} />
           <Input.Field
-            getter={month}
-            setter={setMonth}
             type='month'
-            getError={{}}
-            setError={false} />
-          <Input.Error src={""} />
+            getter={date.month}
+            setter={e => updateDate(
+              {...date, month: e.target.value}
+            )}
+            getError={monthErr}
+            setError={setMonthErr} />
+          <Input.Error src={monthErr} />
         </Input.Root>
 
         <Input.Root>
           <Input.Label 
             type="year" 
-            error={dayErr} />
+            error={yearErr} />
           <Input.Field
-            getter={year}
-            setter={setYear}
             type='year'
-            getError={{}}
-            setError={false} />
-          <Input.Error src={""} />
+            getter={date.year}
+            setter={e => updateDate(
+              {...date, year: e.target.value}
+            )}
+            getError={yearErr}
+            setError={setYearErr} />
+          <Input.Error src={yearErr} />
         </Input.Root>
       </Form>
 
