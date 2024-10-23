@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
 const InputLabel = ({type, error}) => {
+  const color = error.isActive ? "red" : "grey"
+
   return (
-    <label className="label" htmlFor="input-field" style={{
-      color: error.color
-    }}>
+    <label className="label" htmlFor="input-field" style={{color}}>
       {type.toUpperCase()}
     </label>
   );
@@ -13,7 +13,7 @@ const InputLabel = ({type, error}) => {
 InputLabel.propTypes = {
   type: PropTypes.string.isRequired,
   error: PropTypes.shape({
-    color: PropTypes.string.isRequired
+    isActive: PropTypes.bool.isRequired
   })
 }
 

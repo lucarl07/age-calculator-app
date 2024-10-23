@@ -3,7 +3,7 @@ import setInputPlaceholder from "../../helpers/setInputPlaceholder";
 
 const InputField = ({type, getter, setter, getError}) => {
   const placeholder = setInputPlaceholder(type);
-  const borderColor = getError.color
+  const borderColor = getError.isActive ? "red" : "grey"
   
   return (
     <input 
@@ -25,7 +25,7 @@ InputField.propTypes = {
   ]),
   setter: PropTypes.func.isRequired,
   getError: PropTypes.shape({
-    color: PropTypes.string.isRequired,
+    isActive: PropTypes.bool.isRequired,
   })
 }
 

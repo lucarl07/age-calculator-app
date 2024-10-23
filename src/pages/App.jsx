@@ -1,6 +1,6 @@
 // Dependencies & Helpers:
 import { useReducer, useState } from 'react';
-import { getYear } from 'date-fns';
+import { getYear, getDaysInMonth } from 'date-fns';
 import calculateAge from '../helpers/calculateAge.js';
 
 // Stylesheet & Assets:
@@ -18,7 +18,7 @@ import Break from "../components/Break";
 import Output from "../components/Output";
 
 const defError = {
-  color: "grey",
+  isActive: false,
   message: "" 
 }
 
@@ -28,9 +28,50 @@ function App() {
   const [yearErr, setYearErr] = useState(defError)
 
   const [date, updateDate] = useReducer((prev, next) => {
-    return { ...prev, ...next };
+    const newDate = { ...prev, ...next }
+    const errors = [false, false, false, false]
+
+    if (newDate.day > 31) {
+      errors[1] = true
+      setDayErr({
+        isActive: true,
+        message: 'Must be a valid day'
+      })
+    } else {
+      errors[1] = false
+      setDayErr(defError)
+    }
+
+    if (newDate.month > 12) {
+      errors[2] = true
+      setMonthErr({
+        isActive: true,
+        message: 'Must be a valid month'
+      })
+    } else {
+      errors[2] = false
+      setMonthErr(defError)
+    }
+
+    // Checks if the date is in the past/present
+    if (
+      new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()
+    ) {
+      errors[3] = true
+      setYearErr({
+        isActive: true,
+        message: 'Must be in the past'
+      })
+    } else {
+      errors[3] = false
+      setYearErr(defError)
+    }
+
+    return { ...newDate, errors };
   }, {
-    day: "", month: "", year: ""
+    day: "", month: "", year: "", errors: [ 
+      false, false, false, false 
+    ]
   })
   const age = calculateAge(date)
 
