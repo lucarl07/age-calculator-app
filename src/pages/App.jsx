@@ -1,5 +1,6 @@
 // Dependencies & Helpers:
 import { useReducer, useState } from 'react';
+import { getDaysInMonth } from 'date-fns';
 import calculateAge from '../helpers/calculateAge.js';
 
 // Stylesheet & Assets:
@@ -55,6 +56,22 @@ function App() {
     } else {
       errors[0] = false
       setDayErr(defError)
+    }
+
+    // Check if the date's day is on the day range of the provided month
+    if (newDate.day > getDaysInMonth(new Date(newDate.year, newDate.month - 1, 1))) {
+      errors.fill(true)
+      setDayErr({
+        isActive: true,
+        message: 'Must be a valid date'
+      })
+      setMonthErr({ isActive: true, message: '' })
+      setYearErr({ isActive: true, message: '' })
+    } else {
+      errors.fill(false)
+      setDayErr(defError)
+      setMonthErr(defError)
+      setYearErr(defError)
     }
 
     if (newDate.month > 12 || newDate.month < 1) {
