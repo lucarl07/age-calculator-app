@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import setInputPlaceholder from "../../helpers/setInputPlaceholder";
 
-const InputField = ({type, getter, setter, getError}) => {
+const InputField = ({type, getter, setter, error}) => {
   const placeholder = setInputPlaceholder(type);
-  const borderColor = getError.isActive ? "red" : "grey"
+  const borderColor = error.isActive ? "red" : "grey"
   
   return (
     <input 
@@ -24,7 +24,7 @@ InputField.propTypes = {
     PropTypes.string
   ]),
   setter: PropTypes.func.isRequired,
-  getError: PropTypes.shape({
+  error: PropTypes.shape({
     isActive: PropTypes.bool.isRequired,
   })
 }

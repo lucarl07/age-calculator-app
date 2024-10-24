@@ -110,8 +110,7 @@ function App() {
             setter={e => updateDate(
               {...date, day: e.target.value}
             )}
-            getError={dayErr}
-            setError={setDayErr} />
+            error={dayErr} />
           <Input.Error src={dayErr} />
         </Input.Root>
 
@@ -125,8 +124,7 @@ function App() {
             setter={e => updateDate(
               {...date, month: e.target.value}
             )}
-            getError={monthErr}
-            setError={setMonthErr} />
+            error={monthErr} />
           <Input.Error src={monthErr} />
         </Input.Root>
 
@@ -140,8 +138,7 @@ function App() {
             setter={e => updateDate(
               {...date, year: e.target.value}
             )}
-            getError={yearErr}
-            setError={setYearErr} />
+            error={yearErr} />
           <Input.Error src={yearErr} />
         </Input.Root>
       </Form>
