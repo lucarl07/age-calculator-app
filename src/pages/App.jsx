@@ -24,12 +24,10 @@ function App() {
 
   const [date, updateDate] = useReducer((prev, next) => {
     const newDate = { ...prev, ...next }
-    const errors = [false, false, false, false]
+    const errors = [false, false, false]
 
     // Checks if the date is in the past/present
-    if (
-      new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()
-    ) {
+    if (new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()) {
       errors[2] = true
       setYearErr({
         isActive: true,
@@ -91,9 +89,8 @@ function App() {
 
     return { ...newDate, errors };
   }, {
-    day: "", month: "", year: "", errors: [ 
-      false, false, false
-    ]
+    day: "", month: "", year: "", 
+    errors: [ false, false, false ]
   })
   const age = calculateAge(date)
 
