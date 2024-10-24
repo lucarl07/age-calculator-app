@@ -2,9 +2,13 @@ import PropTypes from "prop-types";
 
 const Results = ({children}) => {
   return (
-    <hgroup className="results">
-      {children}
-    </hgroup>
+    <ul className="results">
+      {children.map((child, i) => (
+        <li key={i}>
+          {child}
+        </li>
+      ))}
+    </ul>
   );
 }
 
