@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 
-const InputError = ({message}) => {
+const InputError = ({src}) => {
   return (
     <span className="error-msg">
-      {message}
+      {src.message}
     </span>
   );
 }
 
 InputError.propTypes = {
-  message: PropTypes.string
+  src: PropTypes.shape({
+    message: PropTypes.string
+  })
 }
 
 export default InputError;

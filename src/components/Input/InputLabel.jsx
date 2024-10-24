@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-const InputLabel = ({type, hasError = false}) => {
+const InputLabel = ({type, error}) => {
+  const color = error.isActive ? "red" : "grey"
+
   return (
-    <label className="label" htmlFor="input-field" style={{
-      color: hasError ? "red" : "grey"
-    }}>
+    <label className="label" htmlFor="input-field" style={{color}}>
       {type.toUpperCase()}
     </label>
   );
@@ -12,7 +12,9 @@ const InputLabel = ({type, hasError = false}) => {
 
 InputLabel.propTypes = {
   type: PropTypes.string.isRequired,
-  hasError: PropTypes.bool
+  error: PropTypes.shape({
+    isActive: PropTypes.bool.isRequired
+  })
 }
 
 export default InputLabel;

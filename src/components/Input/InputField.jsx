@@ -1,28 +1,32 @@
 import PropTypes from "prop-types";
+import setInputPlaceholder from "../../helpers/setInputPlaceholder";
 
-const InputField = ({getter, setter, placeholder, hasError}) => {
-  const borderColor = hasError ? "red" : "grey"
-
+const InputField = ({type, getter, setter, error}) => {
+  const placeholder = setInputPlaceholder(type);
+  const borderColor = error.isActive ? "red" : "grey"
+  
   return (
     <input 
       type="number" 
       name="input-field"
       className="input-field"
-      placeholder={placeholder.toUpperCase()}
+      placeholder={placeholder}
       value={getter}
-      onChange={({target}) => setter(target.value)}
+      onChange={setter}
       style={{borderColor}} />
   );
 }
 
 InputField.propTypes = {
+  type: PropTypes.string,
   getter: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string
   ]),
   setter: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  hasError: PropTypes.bool
+  error: PropTypes.shape({
+    isActive: PropTypes.bool.isRequired,
+  })
 }
 
 export default InputField
