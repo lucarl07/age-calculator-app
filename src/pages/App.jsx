@@ -39,6 +39,7 @@ function App() {
       setYearErr(defError)
     }
     
+    // Checks if the day is not between 1-31
     if (newDate.day > 31 || newDate.day < 1) {
       errors[0] = true
       
@@ -74,6 +75,7 @@ function App() {
       setYearErr(defError)
     }
 
+    // Checks if the month is not between 1-12
     if (newDate.month > 12 || newDate.month < 1) {
       errors[1] = true
       
@@ -93,6 +95,7 @@ function App() {
       setMonthErr(defError)
     }
 
+    // Checks if the year is lesser than 1
     if (newDate.year < 1) {
       errors[2] = true
       setYearErr({
