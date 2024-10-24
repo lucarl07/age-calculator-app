@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import setInputPlaceholder from "../../helpers/setInputPlaceholder";
+import setInputPlaceholder from "./setInputPlaceholder";
 
 const InputField = ({type, getter, setter, error}) => {
   const placeholder = setInputPlaceholder(type);
