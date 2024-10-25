@@ -1,0 +1,15 @@
+.output {
+  height: 6rem;
+  font-family: 'Poppins Extra-Bold', sans-serif;
+  font-style: italic;
+  line-height: 5rem;
+  font-size: 5rem;
+}
+
+.number {
+  color: var(--purple);
+}
+
+.time_period {
+  color: var(--off-black);
+}
