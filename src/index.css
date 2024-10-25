@@ -18,3 +18,8 @@
   font-family: "Poppins";
   src: url(./assets/fonts/Poppins-Regular.ttf);
 }
+
+@font-face {
+  font-family: "Poppins Extra-Bold";
+  src: url(./assets/fonts/Poppins-ExtraBold.ttf);
+}

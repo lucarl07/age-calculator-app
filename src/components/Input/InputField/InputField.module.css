@@ -1,0 +1,10 @@
+.input {
+  width: 115px;
+  height: 60px;
+  padding-left: 20px;
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  font-family: "Poppins Extra-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+}

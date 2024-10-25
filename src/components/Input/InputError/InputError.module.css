@@ -1,0 +1,6 @@
+.error_msg {
+  color: var(--light-red);
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 12px;
+}
