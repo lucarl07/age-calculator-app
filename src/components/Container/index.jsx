@@ -1,12 +1,16 @@
+// Stylesheet:
+import styles from './Container.module.css'
+
+// Dependencies:
 import PropTypes from "prop-types";
 
 const Container = ({unique: isUnique = false, children}) => {
   return isUnique ? (
-    <main className="container">
+    <main className={styles.container}>
       {children}
     </main>
   ) : (
-    <section className="container">
+    <section className={styles.container}>
       {children}
     </section>
   );
