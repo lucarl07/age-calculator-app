@@ -4,8 +4,12 @@ import styles from './BreakRoot.module.css'
 // Dependencies:
 import PropTypes from "prop-types"
 
+// Helpers:
+import useWindowDimensions from './useWindowDimensions'
+
 const BreakRoot = ({children}) => {
-  const isViewportMobile = false
+  const { width, height } = useWindowDimensions();
+  const isViewportMobile = height > width && width < 425 ? true : false
 
   return (
     <div role='group' className={styles.x_break}>
