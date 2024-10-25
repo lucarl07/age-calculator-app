@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 3rem;
-  width: 650px;
+  padding: 50px;
+  width: 700px;
   min-height: 450px;
   border-radius: 1rem 1rem 10rem 1rem;
   background-color: var(--white);
