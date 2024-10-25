@@ -12,3 +12,9 @@
   width: 95%;
   height: 95%;
 }
+
+@media screen and (max-width: 425px) {
+  .icon img {
+    width: 36px;
+  }
+}
