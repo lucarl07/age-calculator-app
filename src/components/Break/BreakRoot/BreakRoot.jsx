@@ -9,7 +9,7 @@ import useWindowDimensions from './useWindowDimensions'
 
 const BreakRoot = ({children}) => {
   const { width, height } = useWindowDimensions();
-  const isViewportMobile = height > width && width < 425 ? true : false
+  const isViewportMobile = height > width && width <= 425 ? true : false
 
   return (
     <div role='group' className={styles.x_break}>

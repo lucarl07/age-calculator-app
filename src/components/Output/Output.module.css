@@ -13,3 +13,11 @@
 .time_period {
   color: var(--off-black);
 }
+
+@media screen and (max-width: 425px) {
+  .output {
+    height: 70px;
+    line-height: 60px;
+    font-size: 60px;
+  }
+}

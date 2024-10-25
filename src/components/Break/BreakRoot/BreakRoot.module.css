@@ -8,3 +8,9 @@
   height: 1px;
   background-color: var(--light-grey);
 }
+
+@media screen and (max-width: 425px) {
+  .x_break {
+    margin: 2rem 0;
+  }
+}
