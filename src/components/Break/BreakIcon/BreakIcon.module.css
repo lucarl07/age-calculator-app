@@ -1,0 +1,14 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 100%;
+  background-color: var(--purple);
+}
+
+.icon img {
+  width: 95%;
+  height: 95%;
+}

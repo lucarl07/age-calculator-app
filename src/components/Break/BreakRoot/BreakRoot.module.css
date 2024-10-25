@@ -1,0 +1,17 @@
+.x_break {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.x_break .ruler {
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-grey);
+}
+
+@media screen and (max-width: 425px) {
+  .x_break {
+    width: 100%;
+  }
+}
