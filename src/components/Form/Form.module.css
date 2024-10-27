@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 425px) {
+  .form {
+    display: flex;
+    gap: 18px;
+  }
+}
