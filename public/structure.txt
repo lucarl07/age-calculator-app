@@ -1,8 +1,0 @@
-main (default branch)
-  |── production
-  |     |── feature/structure
-  |     |── feature/code
-  |     |── feature/styles
-  |     |── feature/validations
-  |     |── feature/animations (optional)
-  |── deploy (may be named "gh-pages")
