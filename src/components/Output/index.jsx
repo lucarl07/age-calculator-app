@@ -1,16 +1,20 @@
+// Stylesheet:
+import styles from './Output.module.css'
+
+// Dependencies:
 import PropTypes from "prop-types";
 
 const Output = ({value, period}) => {
   return (
-    <h1 className="output">
-      <span className="number">
+    <p className={styles.output}>
+      <span className={styles.number}>
         {value || "--"}
       </span>
       {" "}
-      <span className="period">
+      <span className={styles.time_period}>
         {Math.abs(value) != 1 ? period + 's' : period}
       </span>
-    </h1>
+    </p>
   );
 }
 

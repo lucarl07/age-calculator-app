@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: 700px;
+  border-radius: 1rem 1rem 10rem 1rem;
+  background-color: var(--white);
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 90vw;
+    padding: 50px 24px;
+  }
+}

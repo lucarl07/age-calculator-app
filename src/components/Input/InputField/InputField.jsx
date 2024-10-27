@@ -1,19 +1,23 @@
+// Stylesheet:
+import styles from "./InputField.module.css"
+
+// Dependencies & Helpers:
 import PropTypes from "prop-types";
 import setInputPlaceholder from "./setInputPlaceholder";
 
 const InputField = ({type, getter, setter, error}) => {
   const placeholder = setInputPlaceholder(type);
-  const borderColor = error.isActive ? "red" : "grey"
+  const borderColor = error.isActive ? "var(--light-red)" : "var(--light-grey)"
   
   return (
     <input 
       type="number" 
-      name="input-field"
-      className="input-field"
+      name="input_field"
+      className={styles.input}
       placeholder={placeholder}
       value={getter}
       onChange={setter}
-      style={{borderColor}} />
+      style={{ borderColor }} />
   );
 }
 

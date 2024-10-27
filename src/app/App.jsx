@@ -1,11 +1,11 @@
+// Stylesheet & Assets:
+import './App.css';
+import IconArrow from "../assets/images/icon-arrow.svg"
+
 // Dependencies & Helpers:
 import { useReducer, useState } from 'react';
 import { getDaysInMonth } from 'date-fns';
 import calculateAge from './calculateAge.js';
-
-// Stylesheet & Assets:
-import './App.css';
-import IconArrow from "../assets/images/icon-arrow.svg"
 
 // Singular Components:
 import Container from "../components/Container";
@@ -115,7 +115,7 @@ function App() {
   const age = calculateAge(date)
 
   return (
-    <Container>
+    <Container isUnique={true}>
       <Form>
         <Input.Root>
           <Input.Label 

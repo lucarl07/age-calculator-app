@@ -1,0 +1,19 @@
+.input {
+  width: 130px;
+  height: 60px;
+  padding-left: 20px;
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  font-family: "Poppins Bold", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 425px) {
+  .input {
+    width: 100px;
+    height: 60px;
+    padding-left: 14px;
+    font-size: 20px;
+  }
+}

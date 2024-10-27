@@ -1,8 +1,12 @@
+// Stylesheet:
+import styles from "./InputError.module.css"
+
+// Dependencies
 import PropTypes from "prop-types";
 
 const InputError = ({src}) => {
   return (
-    <span className="error-msg">
+    <span className={styles.error_msg}>
       {src.message}
     </span>
   );

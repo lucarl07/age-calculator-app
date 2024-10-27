@@ -1,10 +1,14 @@
+// Stylesheets:
+import styles from "./InputLabel.module.css"
+
+// Dependencies:
 import PropTypes from "prop-types";
 
 const InputLabel = ({type, error}) => {
-  const color = error.isActive ? "red" : "grey"
+  const color = error.isActive ? "var(--light-red)" : "var(--smokey-grey)"
 
   return (
-    <label className="label" htmlFor="input-field" style={{color}}>
+    <label className={styles.label} htmlFor="input_field" style={{color}}>
       {type.toUpperCase()}
     </label>
   );
