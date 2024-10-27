@@ -27,51 +27,15 @@ function App() {
     const newDate = { ...prev, ...next }
     const errors = [false, false, false]
 
-    // Checks if the date is in the past/present
-    if (new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()) {
+    // Checks if the year is lesser than 1
+    if (newDate.year < 1) {
       errors[2] = true
       setYearErr({
         isActive: true,
-        message: 'Must be in the past'
+        message: 'This field is required'
       })
     } else {
       errors[2] = false
-      setYearErr(defError)
-    }
-    
-    // Checks if the day is not between 1-31
-    if (newDate.day > 31 || newDate.day < 1) {
-      errors[0] = true
-      
-      if (newDate.day < 1) {
-        setDayErr({
-          isActive: true,
-          message: 'This field is required'
-        })
-      } else {
-        setDayErr({
-          isActive: true,
-          message: 'Must be a valid day'
-        })
-      }
-    } else {
-      errors[0] = false
-      setDayErr(defError)
-    }
-
-    // Check if the date's day is on the day range of the provided month
-    if (newDate.day > getDaysInMonth(new Date(newDate.year, newDate.month - 1, 1))) {
-      errors.fill(true)
-      setDayErr({
-        isActive: true,
-        message: 'Must be a valid date'
-      })
-      setMonthErr({ isActive: true, message: '' })
-      setYearErr({ isActive: true, message: '' })
-    } else {
-      errors.fill(false)
-      setDayErr(defError)
-      setMonthErr(defError)
       setYearErr(defError)
     }
 
@@ -95,12 +59,45 @@ function App() {
       setMonthErr(defError)
     }
 
-    // Checks if the year is lesser than 1
-    if (newDate.year < 1) {
+    // Checks if the day is not between 1-31
+    if (newDate.day > 31 || newDate.day < 1) {
+      errors[0] = true
+      
+      if (newDate.day < 1) {
+        setDayErr({
+          isActive: true,
+          message: 'This field is required'
+        })
+      } else {
+        setDayErr({
+          isActive: true,
+          message: 'Must be a valid day'
+        })
+      }
+    } else {
+      // Check if the date's day is on the day range of the provided month
+      if (newDate.day > getDaysInMonth(new Date(newDate.year, newDate.month - 1, 1))) {
+        errors.fill(true)
+        setDayErr({
+          isActive: true,
+          message: 'Must be a valid date'
+        })
+        setMonthErr({ isActive: true, message: '' })
+        setYearErr({ isActive: true, message: '' })
+      } else {
+        errors.fill(false)
+        setDayErr(defError)
+        setMonthErr(defError)
+        setYearErr(defError)
+      }
+    }
+
+    // Checks if the date is in the future
+    if (new Date(newDate.year, newDate.month - 1, newDate.day) > new Date()) { 
       errors[2] = true
       setYearErr({
         isActive: true,
-        message: 'This field is required'
+        message: 'Must be in the past'
       })
     } else {
       errors[2] = false
