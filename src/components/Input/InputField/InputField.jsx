@@ -3,7 +3,7 @@ import styles from "./InputField.module.css"
 
 // Dependencies & Helpers:
 import PropTypes from "prop-types";
-import setInputPlaceholder from "./setInputPlaceholder";
+import setInputPlaceholder from "../../../utils/setInputPlaceholder";
 
 const InputField = ({type, getter, setter, error}) => {
   const placeholder = setInputPlaceholder(type);

@@ -5,7 +5,7 @@ import styles from './BreakRoot.module.css'
 import PropTypes from "prop-types"
 
 // Helpers:
-import useWindowDimensions from './useWindowDimensions'
+import useWindowDimensions from '../../../hooks/useWindowDimensions'
 
 const BreakRoot = ({children}) => {
   const { width, height } = useWindowDimensions();
