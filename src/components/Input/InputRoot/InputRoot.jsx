@@ -5,13 +5,15 @@ import styles from "./InputRoot.module.css"
 import PropTypes from "prop-types";
 
 // Hooks:
-import { TypeContext } from "../../../hooks/InputContexts";
+import { TypeContext, ErrorContext } from "../../../hooks/InputContexts";
 
-const InputRoot = ({ type, children }) => {
+const InputRoot = ({ type, error, children }) => {
   return (
     <div className={styles.wrapper}>
       <TypeContext.Provider value={type}>
-        {children}
+        <ErrorContext.Provider value={error}>    
+          {children}
+        </ErrorContext.Provider>
       </TypeContext.Provider>
     </div>
   );
@@ -19,6 +21,10 @@ const InputRoot = ({ type, children }) => {
 
 InputRoot.propTypes = {
   type: PropTypes.string,
+  error: PropTypes.shape({
+    isActive: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired
+  }),
   children: PropTypes.node.isRequired
 }
 

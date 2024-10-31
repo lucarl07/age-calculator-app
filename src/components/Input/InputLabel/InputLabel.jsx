@@ -2,14 +2,16 @@
 import styles from "./InputLabel.module.css"
 
 // Dependencies:
-import PropTypes from "prop-types";
 import { useContext } from 'react';
 
 // Hooks:
-import { TypeContext } from "../../../hooks/InputContexts";
+import { TypeContext, ErrorContext } from "../../../hooks/InputContexts";
 
-const InputLabel = ({error}) => {
+const InputLabel = () => {
   const type = useContext(TypeContext)
+  const error = useContext(ErrorContext)
+
+  // Determining the font color
   const color = error.isActive ? "var(--light-red)" : "var(--smokey-grey)"
 
   return (
@@ -17,12 +19,6 @@ const InputLabel = ({error}) => {
       {type.toUpperCase()}
     </label>
   );
-}
-
-InputLabel.propTypes = {
-  error: PropTypes.shape({
-    isActive: PropTypes.bool.isRequired
-  })
 }
 
 export default InputLabel;

@@ -1,21 +1,20 @@
 // Stylesheet:
 import styles from "./InputError.module.css"
 
-// Dependencies
-import PropTypes from "prop-types";
+// Dependencies:
+import { useContext } from 'react';
 
-const InputError = ({src}) => {
+// Hooks:
+import { ErrorContext } from "../../../hooks/InputContexts";
+
+const InputError = () => {
+  const errorSrc = useContext(ErrorContext)
+
   return (
     <span className={styles.error_msg}>
-      {src.message}
+      {errorSrc.message}
     </span>
   );
-}
-
-InputError.propTypes = {
-  src: PropTypes.shape({
-    message: PropTypes.string
-  })
 }
 
 export default InputError;
