@@ -4,15 +4,21 @@ import styles from "./InputRoot.module.css"
 // Dependencies:
 import PropTypes from "prop-types";
 
-const InputRoot = ({children}) => {
+// Hooks:
+import { TypeContext } from "../../../hooks/InputContexts";
+
+const InputRoot = ({ type, children }) => {
   return (
     <div className={styles.wrapper}>
-      {children}
+      <TypeContext.Provider value={type}>
+        {children}
+      </TypeContext.Provider>
     </div>
   );
 }
 
 InputRoot.propTypes = {
+  type: PropTypes.string,
   children: PropTypes.node.isRequired
 }
 

@@ -3,8 +3,13 @@ import styles from "./InputLabel.module.css"
 
 // Dependencies:
 import PropTypes from "prop-types";
+import { useContext } from 'react';
 
-const InputLabel = ({type, error}) => {
+// Hooks:
+import { TypeContext } from "../../../hooks/InputContexts";
+
+const InputLabel = ({error}) => {
+  const type = useContext(TypeContext)
   const color = error.isActive ? "var(--light-red)" : "var(--smokey-grey)"
 
   return (
@@ -15,7 +20,6 @@ const InputLabel = ({type, error}) => {
 }
 
 InputLabel.propTypes = {
-  type: PropTypes.string.isRequired,
   error: PropTypes.shape({
     isActive: PropTypes.bool.isRequired
   })

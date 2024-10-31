@@ -114,12 +114,10 @@ function App() {
   return (
     <Container isUnique={true}>
       <Form>
-        <Input.Root>
-          <Input.Label 
-            type="day" 
+        <Input.Root type="day">
+          <Input.Label  
             error={dayErr} />
           <Input.Field
-            type='day'
             getter={date.day}
             setter={e => updateDate(
               {...date, day: e.target.value}
@@ -128,12 +126,10 @@ function App() {
           <Input.Error src={dayErr} />
         </Input.Root>
 
-        <Input.Root>
-          <Input.Label 
-            type="month" 
+        <Input.Root type="month">
+          <Input.Label  
             error={monthErr} />
           <Input.Field
-            type='month'
             getter={date.month}
             setter={e => updateDate(
               {...date, month: e.target.value}
@@ -142,12 +138,10 @@ function App() {
           <Input.Error src={monthErr} />
         </Input.Root>
 
-        <Input.Root>
-          <Input.Label 
-            type="year" 
+        <Input.Root type="year">
+          <Input.Label  
             error={yearErr} />
           <Input.Field
-            type='year'
             getter={date.year}
             setter={e => updateDate(
               {...date, year: e.target.value}

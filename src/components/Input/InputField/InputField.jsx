@@ -1,11 +1,16 @@
 // Stylesheet:
 import styles from "./InputField.module.css"
 
-// Dependencies & Helpers:
+// Dependencies:
 import PropTypes from "prop-types";
+import { useContext } from 'react';
+
+// Hooks & Helpers:
+import { TypeContext } from "../../../hooks/InputContexts";
 import setInputPlaceholder from "../../../utils/setInputPlaceholder";
 
-const InputField = ({type, getter, setter, error}) => {
+const InputField = ({getter, setter, error}) => {
+  const type = useContext(TypeContext)
   const placeholder = setInputPlaceholder(type);
   const borderColor = error.isActive ? "var(--light-red)" : "var(--light-grey)"
   
@@ -22,7 +27,6 @@ const InputField = ({type, getter, setter, error}) => {
 }
 
 InputField.propTypes = {
-  type: PropTypes.string,
   getter: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string
